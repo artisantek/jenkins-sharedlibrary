@@ -56,4 +56,5 @@ kubernetesShell('dockerhub', 'artisantek/useraccount', \
 This repo consists of groovy scripts, used to continously integrate and continously deliver the projects in both docker and kubernetes/eks environmenrts.
 
 > Shell --> Uses only shell commands with piplenine declarative synatx
+
 > Script --> Uses script block to perform various operations
