@@ -25,12 +25,12 @@ call() function within our Groovy file. Consider the call() function like the ma
 
 Under the Library section, configure values as below:
 
-1. Name (remember, we will refer to this shared library name from Jenkinsfile).
-2. Default version (branch name of our Shared Library git repo).
-3. Under the Retrieval method, choose Modern SCM.
-4. Under Source Code Management, choose Git.
-5. Enter your Pipeline Shared Libraries repo URL under Project Repository
-6. Configure credentials if your shared library is stored in private repo
+- Name (remember, we will refer to this shared library name from Jenkinsfile).
+-  Default version (branch name of our Shared Library git repo).
+-  Under the Retrieval method, choose Modern SCM.
+-  Under Source Code Management, choose Git.
+-  Enter your Pipeline Shared Libraries repo URL under Project Repository
+-  Configure credentials if your shared library is stored in private repo
 
 ## Referring Jenkins Shared Library from Pipeline
 Call the shared library under the pipeline section
