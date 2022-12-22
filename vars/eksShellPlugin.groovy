@@ -41,7 +41,7 @@ environment {
 		      agent{label 'eks'}
 		      steps {
 			      script {
-              withKubeConfig([credentialsId: '$kubernetesconfig', serverUrl: '']) {
+              withKubeConfig([credentialsId: 'kubernetesconfig', serverUrl: '']) {
                 sh 'kubectl set image deploy $deployment $containerName="$registry:$dockerTag" --record'
               }
             }
