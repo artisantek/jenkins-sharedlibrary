@@ -40,7 +40,7 @@ environment {
 		agent{label 'eks'}
 		          steps {
 			          checkout([$class: 'GitSCM', branches: [[name: "$gitBranch"]], extensions: [], userRemoteConfigs: [[credentialsId: "$gitCredId", url: "$gitRepo"]]])  
-				  sh 'helm upgrade --install useraccount helm/nodejs-useraccount --set image.repository="$registry:$dockerTag" '
+				  sh 'helm upgrade --install useraccount helm/nodejs-useraccount --set image.repository="$registry:$dockerTag" --set deployment.name="$deployment" --set image.containerName="$containerName" '
 		          }
 	}  
     }
