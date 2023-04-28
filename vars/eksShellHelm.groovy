@@ -16,7 +16,7 @@ environment {
 
     stages {
         stage("POLL SCM"){
-		agent{ label('docker && eks') }
+		agent{ label('docker') }
             		steps {
                 	checkout([$class: 'GitSCM', branches: [[name: "$gitBranch"]], extensions: [], userRemoteConfigs: [[credentialsId: "$gitCredId", url: "$gitRepo"]]])             
             		}
@@ -39,7 +39,8 @@ environment {
         stage('DEPLOY IMAGE') {
 		agent{label 'eks'}
 		          steps {
-			            sh 'helm upgrade --install useraccount helm/nodejs-useraccount --set image.repository="$registry:$dockerTag" '
+			          checkout([$class: 'GitSCM', branches: [[name: "$gitBranch"]], extensions: [], userRemoteConfigs: [[credentialsId: "$gitCredId", url: "$gitRepo"]]])  
+				  sh 'helm upgrade --install useraccount helm/nodejs-useraccount --set image.repository="$registry:$dockerTag" '
 		          }
 	}  
     }
